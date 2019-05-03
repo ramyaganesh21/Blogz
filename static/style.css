@@ -1,20 +1,25 @@
-html {
+html
+ {
     margin: 0;
     padding:  0;
-}
+ }
 
 h1 {
     text-align: center;
+    color: blue;
     }
 
-.error {
+
+.error
+ {
     color: red;
-}
+ }
 
 
 
-body { 
-    background:rgb(192, 224, 154);
+body
+ { 
+    background: lightblue;
   	font: 75% georgia, sans-serif;
 	line-height: 1.88889;
     color: black;
@@ -22,4 +27,4 @@ body {
     font-weight: 100;
     margin: 25px 50px 75px 100px; 
 	padding: 0;
-}
+ }
