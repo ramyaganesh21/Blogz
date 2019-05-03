@@ -1,0 +1,25 @@
+html {
+    margin: 0;
+    padding:  0;
+}
+
+h1 {
+    text-align: center;
+    }
+
+.error {
+    color: red;
+}
+
+
+
+body { 
+    background:rgb(192, 224, 154);
+  	font: 75% georgia, sans-serif;
+	line-height: 1.88889;
+    color: black;
+    font-size: 18px; 
+    font-weight: 100;
+    margin: 25px 50px 75px 100px; 
+	padding: 0;
+}
