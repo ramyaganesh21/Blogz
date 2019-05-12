@@ -5,5 +5,5 @@
     
     <h1>{{post.title}}</h1>
     <p>{{post.body}}</p>
-               
+    <p><small>written by <a href="/blog?user={{post.owner_id}}">{{post.owner.user_name}}</a> on {{post.date_posted}} UTC</small></p>                
 {% endblock %}    

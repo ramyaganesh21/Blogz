@@ -1,15 +1,76 @@
 <!DOCTYPE html>
+
 <html>
 <head>
-    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='style.css') }}"> 
-    <title>{{title}}</title>
+
+    <link rel="stylesheet" type= "text/css" href="{{url_for('static',filename='\static\style.css')}}"> 
+ 
+<style>
+    html
+ {
+    margin: 0;
+    padding:  0;
+ }
+
+h1 {
+    text-align: center;
+    color:maroon;
+    text-underline-position: below;
+    text-decoration-color: black;
+    text-decoration-line: underline;
+    
+    }
+
+
+.error
+ {
+    color: red;
+ }
+
+
+
+body
+ { 
+    background:rgb(236, 187, 204);
+  	font: 75% georgia, sans-serif;
+	line-height: 1.88889;
+    color: black;
+    font-size: 20px; 
+    font-weight: 100;
+    margin: 25px 50px 75px 100px; 
+	padding: 0;
+ }
+</style>
+    <title> {{heading}} </title>
+
     
 </head>
+
 <body>
     <nav>
-        <a href="/blog">Main Blog Page</a> | 
-        <a href="/newpost">Add a Blog Entry</a>
+        <a href="/">Home</a>|
+        <a href="/blog"> Blog Page</a> | 
+        <a href="/newpost">Add a Blog-Page</a>
+
+        <div align="right">
+            <a href="/login">Log in</a>|
+            <a href="/logout">Logout</a>
+         </div>
+       
     </nav>
+
+   <br>
+   <br>
+
+
+
+    {% with messages = get_flashed_messages(with_categories=True)%}
+    <ul>
+            {% for category, message in messages %}
+                <li class="{{category}}">{{message}}</li>
+            {% endfor %}
+            </ul>
+            {% endwith %}
 
     {% block content %}
     {% endblock %}
