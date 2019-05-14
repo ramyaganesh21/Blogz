@@ -25,6 +25,8 @@ class Blog(db.Model):
         self.date_posted = date_posted
         self.owner = owner
 
+        # owner is the instance of the user class.backref to owner in blog.
+
 class User(db.Model):
     id = db.Column(db.Integer,primary_key=True)
     user_name = db.Column(db.String(50),unique=True)
@@ -41,11 +43,14 @@ def required_login():
     if request.endpoint not in allowed_routes and 'user_name' not in session:
         return redirect('/login')
             
+# allowed route before loggin in.
 
 @app.route('/')
 def index():
     users = User.query.all()
     return render_template('index.html', users=users, heading ='Blog Users')
+
+# all blog post 
 
 
 @app.route('/blog')
@@ -64,6 +69,8 @@ def blog():
         return render_template('entry.html', post=post)
 
     return render_template('blog.html', posts=posts)    
+
+    # blog post
     
 
 @app.route('/newpost', methods=['POST', 'GET'])
@@ -94,6 +101,8 @@ def newpost():
                 blog_title=blog_title, blog_body=blog_body)
     
     return render_template('newpost.html', heading ='New Blog Entry')
+
+    #new entry for blog
 
 @app.route('/login', methods=['POST', 'GET'])
 def login():
